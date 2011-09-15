@@ -7,3 +7,4 @@ ext/**/mkmf.log
 ext/**/*.o
 ext/**/*.so
 ext/**/*_wrap.cxx
+tmp
