@@ -2,3 +2,8 @@
 .bundle
 Gemfile.lock
 pkg/*
+ext/**/Makefile
+ext/**/mkmf.log
+ext/**/*.o
+ext/**/*.so
+ext/**/*_wrap.cxx
