@@ -51,9 +51,13 @@ interfaces = Dir.glob(
 # SWIG Wrapper files should exist before calling create_makefile(),
 # so write empty files and delete them so Makefile creates
 # the real wrappers. Yuck...
-interfaces.each {|file| FileUtils.touch("#{file}_wrap.cxx")}
+interfaces.each do |file|
+  FileUtils.touch(File.join(File.dirname(__FILE__), "#{file}_wrap.cxx"))
+end
 create_makefile('libmorfo_ruby')
-interfaces.each {|file| FileUtils.rm_f("#{file}_wrap.cxx")}
+interfaces.each do |file|
+  FileUtils.rm_f(File.join(File.dirname(__FILE__), "#{file}_wrap.cxx"))
+end
 
 # Append SWIG compilation rules to Makefile
 open('Makefile', 'a') do |f|
@@ -61,7 +65,8 @@ open('Makefile', 'a') do |f|
          "SWIGFLAGS := -c++ -ruby -autorename\n"
 
   interfaces.each do |file|
-    f.puts "\n#{file}_wrap.cxx: #{file}.i\n" \
-           "\t$(SWIG) $(SWIGFLAGS) #{file}.i\n"
+    rel_path = File.join(File.dirname(__FILE__), "#{file}.i")
+    f.puts "\n#{file}_wrap.cxx: #{rel_path}\n" \
+           "\t$(SWIG) $(SWIGFLAGS) -o #{file}_wrap.cxx #{rel_path}\n"
   end
 end
