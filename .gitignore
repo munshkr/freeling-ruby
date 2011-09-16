@@ -8,3 +8,4 @@ ext/**/*.o
 ext/**/*.so
 ext/**/*_wrap.cxx
 tmp
+lib/*.so
