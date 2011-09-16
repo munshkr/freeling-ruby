@@ -2,5 +2,9 @@ require 'freeling/version'
 require 'libmorfo_ruby'
 
 module FreeLing
-  # Your code goes here...
+  class TreeNode
+    def initialize
+      @obj = Libmorfo_ruby::TreeNode.new
+    end
+  end
 end

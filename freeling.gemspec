@@ -3,15 +3,13 @@ $:.push File.expand_path("../lib", __FILE__)
 require "freeling/version"
 
 Gem::Specification.new do |s|
-  s.name        = "freeling-ruby"
-  s.version     = FreeLing::Ruby::VERSION
+  s.name        = "freeling"
+  s.version     = FreeLing::VERSION
   s.authors     = ["Damián Silvani"]
   s.email       = ["munshkr@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{FreeLing bindings for Ruby}
   s.description = %q{FreeLing bindings for Ruby, using SWIG to automatically generate a Ruby wrapper}
-
-  s.rubyforge_project = "freeling-ruby"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

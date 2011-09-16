@@ -1,5 +1,7 @@
 require 'mkmf'
 
+$LDFLAGS << ' -Wl,-R/usr/local/lib'
+
 def error(msg)
   message("\nError: #{msg}\n\n")
   abort
@@ -43,6 +45,7 @@ end
 unless have_library('morfo')
   error("You must have libmorfo installed.\n")
 end
+
 
 # SWIG interface filenames
 interfaces = Dir.glob(
