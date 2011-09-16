@@ -8,8 +8,20 @@ Gem::Specification.new do |s|
   s.authors     = ["Damián Silvani"]
   s.email       = ["munshkr@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{FreeLing bindings for Ruby}
-  s.description = %q{FreeLing bindings for Ruby, using SWIG to automatically generate a Ruby wrapper}
+  s.summary     = %q{Ruby bindings for FreeLing, an open source NLP tool suite.}
+  s.description = <<-EOM
+    FreeLing is an open source suite of language analyzers written in C++.
+    The main services offered are: Text tokenization, sentence splitting,
+    morphological analysis, suffix treatment, retokenization of clitic pronouns,
+    flexible multiword recognition, contraction splitting, probabilistic
+    prediction of unkown word categories, named entity detection, recognition of
+    dates, numbers, ratios, currency, and physical magnitudes (speed, weight,
+    temperature, density, etc.), PoS tagging, chart-based shallow parsing, named
+    entity classification, WordNet based sense annotation and disambiguation,
+    rule-based dependency parsing, and nominal correference resolution.
+    Currently supported languages are Spanish, Catalan, Galician, Italian,
+    English, Welsh, Portuguese, and Asturian.
+    EOM
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
