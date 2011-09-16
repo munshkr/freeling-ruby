@@ -1,7 +1,7 @@
 require 'mkmf'
 
 def error(msg)
-  message(msg + "\n")
+  message("\nError: #{msg}\n\n")
   abort
 end
 
@@ -16,7 +16,8 @@ end
 # Check if it's SWIG 2.0+
 ver = `#{SWIG_BIN_PATH} -version`.scan(/Version ([\d.]+)/).flatten.first
 unless ver >= '2.0'
-  error("#{SWIG_BIN_PATH} version is #{ver}. You need SWIG 2.0.")
+  error("#{SWIG_BIN_PATH} version is #{ver}. You need SWIG 2.0.\n" \
+        "You can set SWIG_BIN_PATH to the correct SWIG 2.0 path.")
 end
 
 unless have_library('db_cxx')

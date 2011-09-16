@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "freeling-ruby/version"
+require "freeling/version"
 
 Gem::Specification.new do |s|
   s.name        = "freeling-ruby"
@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Damián Silvani"]
   s.email       = ["munshkr@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{FreeLing bindings for Ruby}
+  s.description = %q{FreeLing bindings for Ruby, using SWIG to automatically generate a Ruby wrapper}
 
   s.rubyforge_project = "freeling-ruby"
 
