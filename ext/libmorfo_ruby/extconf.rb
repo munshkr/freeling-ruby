@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'mkmf'
 
 def error(msg)
@@ -44,12 +43,25 @@ unless have_library('morfo')
   error("You must have libmorfo installed.\n")
 end
 
-# Run SWIG on each interface file
-Dir.glob(File.join(File.dirname(__FILE__), '*.i')).each do |file|
-  swig_command = "#{SWIG_BIN_PATH} -autorename -c++ -ruby #{file}"
-  message("running `#{swig_command}`\n")
-  system(swig_command)
-end
+# SWIG interface filenames
+interfaces = Dir.glob(
+    File.join(File.dirname(__FILE__), '*.i')
+  ).map {|file| File.basename(file, '.i')}
 
-# Finally, create Makefile
+# SWIG Wrapper files should exist before calling create_makefile(),
+# so write empty files and delete them so Makefile creates
+# the real wrappers. Yuck...
+interfaces.each {|file| FileUtils.touch("#{file}_wrap.cxx")}
 create_makefile('libmorfo_ruby')
+interfaces.each {|file| FileUtils.rm_f("#{file}_wrap.cxx")}
+
+# Append SWIG compilation rules to Makefile
+open('Makefile', 'a') do |f|
+  f.puts "\nSWIG := #{SWIG_BIN_PATH}\n" \
+         "SWIGFLAGS := -c++ -ruby -autorename\n"
+
+  interfaces.each do |file|
+    f.puts "\n#{file}_wrap.cxx: #{file}.i\n" \
+           "\t$(SWIG) $(SWIGFLAGS) #{file}.i\n"
+  end
+end
