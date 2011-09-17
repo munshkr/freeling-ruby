@@ -393,6 +393,12 @@ class splitter {
 
 
 /*------------------------------------------------------------------------*/
+
+%constant NER_BASIC = 0;
+%constant NER_BIO = 1;
+%constant NER_NONE = 2;
+
+
 class maco_options {
   public:
     // Language analyzed
@@ -401,8 +407,8 @@ class maco_options {
     bool AffixAnalysis, MultiwordsDetection,
          NumbersDetection, PunctuationDetection,
          DatesDetection, QuantitiesDetection,
-         DictionarySearch, ProbabilityAssignment,
-         NERecognition;
+         DictionarySearch, ProbabilityAssignment;
+    int NERecognition;
     /// Morphological analyzer options
     std::string Decimal, Thousand;
     /// Morphological analyzer options
@@ -438,6 +444,14 @@ class maco {
 
 
 /*------------------------------------------------------------------------*/
+
+%constant FORCE_NONE   = 0;  // no selection forced
+%constant FORCE_TAGGER = 1;  // force select after tagger
+%constant FORCE_RETOK  = 2;  // force select after retokenization
+
+
+/*------------------------------------------------------------------------*/
+
 class hmm_tagger {
   public:
     /// Constructor
