@@ -28,6 +28,10 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  s.platform = Gem::Platform::RUBY
+  s.extensions = ["ext/freeling_ruby/extconf.rb"]
+
   # specify any dependencies here; for example:
   s.add_development_dependency "rake", "~> 0.9.2"
+  s.add_development_dependency "rake-compiler", "~> 0.8.1"
 end
