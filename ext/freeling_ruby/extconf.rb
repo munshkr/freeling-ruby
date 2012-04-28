@@ -1,6 +1,4 @@
-require 'mkmf'
-
-$LDFLAGS << ' -Wl,-R/usr/local/lib'
+require 'mkmf-rice'
 
 def error(msg)
   message("\nError: #{msg}\n\n")
@@ -8,7 +6,7 @@ def error(msg)
 end
 
 unless have_library('freeling')
-  error("You must have `freeling` library installed.\n")
+  error("You must have `freeling` library installed.")
 end
 
 create_makefile('freeling_ruby')
