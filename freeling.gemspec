@@ -30,8 +30,5 @@ Gem::Specification.new do |s|
 
   s.extensions = ["ext/libmorfo_ruby/extconf.rb"]
 
-  # specify any dependencies here; for example:
-  s.add_development_dependency "rake", "~> 0.9.2"
-  s.add_development_dependency "rake-compiler", "~> 0.7.9"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency "rake-compiler"
 end
