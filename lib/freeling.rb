@@ -1,10 +1,5 @@
-require 'freeling/version'
-require 'freeling_ruby'
+require "freeling/version"
 
-module FreeLing
-  class TreeNode
-    def initialize
-      @obj = Libmorfo_ruby::TreeNode.new
-    end
-  end
+module Freeling
+  # Your code goes here...
 end

@@ -4,3 +4,9 @@ source "http://rubygems.org"
 gemspec
 
 gem "rake"
+gem "turn"
+gem "guard"
+gem "guard-minitest"
+gem "rb-inotify", :require => false
+gem "rb-fsevent", :require => false
+gem "rb-fchange", :require => false
