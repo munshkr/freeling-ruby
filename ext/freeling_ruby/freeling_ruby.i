@@ -25,11 +25,11 @@
 */
 
 /*
-* libmorfo_ruby.i ~ SWIG interface file (based on Python's SWIG file)
+* freeling_ruby.i ~ SWIG interface file (based on Python's SWIG file)
 */
 
 
-%module libmorfo_ruby
+%module freeling_ruby
 %{
 #include "freeling/traces.h"
 #include "freeling.h"

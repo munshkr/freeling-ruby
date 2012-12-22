@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.extensions = ["ext/libmorfo_ruby/extconf.rb"]
+  s.extensions = ["ext/freeling_ruby/extconf.rb"]
 
   s.add_development_dependency "rake-compiler"
 end

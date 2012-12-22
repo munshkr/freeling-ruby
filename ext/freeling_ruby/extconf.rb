@@ -22,28 +22,8 @@ unless ver >= '2.0'
         "You can set SWIG_BIN_PATH to the correct SWIG 2.0 path.")
 end
 
-unless have_library('db_cxx')
-  error("You must have Berkeley DB library (libdb) installed.\n")
-end
-
-unless have_library('pcre')
-  error("You must have Perl C Regular Expressions library (libpcre) installed.\n")
-end
-
-unless have_library('omlet')
-  error("You must have libomlet installed.\n")
-end
-
-unless have_library('fries')
-  error("You must have libfries installed.\n")
-end
-
-unless have_library('boost_filesystem')
-  error("You must have libboost_filesystem installed.\n")
-end
-
-unless have_library('morfo')
-  error("You must have libmorfo installed.\n")
+unless have_library("freeling")
+  error("You must have `freeling` library installed.")
 end
 
 
@@ -58,7 +38,7 @@ interfaces = Dir.glob(
 interfaces.each do |file|
   FileUtils.touch(File.join(File.dirname(__FILE__), "#{file}_wrap.cxx"))
 end
-create_makefile('libmorfo_ruby')
+create_makefile("freeling_ruby")
 interfaces.each do |file|
   FileUtils.rm_f(File.join(File.dirname(__FILE__), "#{file}_wrap.cxx"))
 end

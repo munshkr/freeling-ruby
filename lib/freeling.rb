@@ -1,5 +1,5 @@
 require 'freeling/version'
-require 'libmorfo_ruby'
+require 'freeling_ruby'
 
 module FreeLing
   class TreeNode
