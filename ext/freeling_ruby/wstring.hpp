@@ -28,4 +28,16 @@ Rice::Object to_ruby<std::wstring>(std::wstring const& wstr)
     return Rice::String(s_utf8);
 }
 
+#ifdef TEST
+std::wstring test_wstring_from_ruby(std::wstring str)
+{
+    return str;
+}
+
+std::wstring test_wstring_to_ruby()
+{
+    return L"おはよう";
+}
+#endif // TEST
+
 #endif // __WSTRING_HPP__

@@ -32,5 +32,7 @@ Gem::Specification.new do |s|
   s.extensions = ["ext/freeling_ruby/extconf.rb"]
 
   s.add_dependency "rice"
+
   s.add_development_dependency "rake-compiler"
+  s.add_development_dependency "minitest"
 end

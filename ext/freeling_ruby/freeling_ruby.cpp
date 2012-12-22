@@ -8,34 +8,27 @@
 using namespace Rice;
 
 
-std::wstring return_wstring()
-{
-    std::wstring str = L"Damián";
-    return str;
-}
-
-void print_wstring(std::wstring str)
-{
-    std::wcout << str << std::endl;
-}
-
-
 extern "C"
-void Init_freeling_ruby() {
-  RUBY_TRY {
-    Rice::Module rb_mFreelingExt = define_module("FreelingExt");
+void Init_freeling_ruby()
+{
+    RUBY_TRY
+    {
+        Rice::Module rb_mFreelingExt = define_module("FreelingExt");
 
-    rb_mFreelingExt
-      .define_singleton_method("return_wstring", &return_wstring)
-      .define_singleton_method("print_wstring", &print_wstring)
-      ;
+        /*
+        Data_Type<tokenizer> rb_cTokenizer =
+            define_class_under<tokenizer>(rb_mFreelingExt, "Tokenizer")
+            .define_constructor(Constructor<tokenizer, std::wstring>())
+            ;
+        */
 
-    /*
-    Data_Type<tokenizer> rb_cTokenizer =
-      define_class_under<tokenizer>(rb_mFreelingExt, "Tokenizer")
-      .define_constructor(Constructor<tokenizer, std::wstring>())
-      ;
-    */
-  }
-  RUBY_CATCH
+        #ifdef TEST
+        Rice::Module rb_mWStringTest = define_module("WStringTest");
+        rb_mWStringTest
+            .define_singleton_method("test_wstring_to_ruby", &test_wstring_to_ruby)
+            .define_singleton_method("test_wstring_from_ruby", &test_wstring_from_ruby)
+            ;
+        #endif // __TEST__
+    }
+    RUBY_CATCH
 }
