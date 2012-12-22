@@ -1,3 +1,5 @@
+$LOAD_PATH << File.expand_path("../../lib", __FILE__)
+
 require "rubygems" unless defined?(Gem)
 require "bundler/setup"
 
