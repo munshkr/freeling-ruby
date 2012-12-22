@@ -28,9 +28,7 @@ end
 
 
 # SWIG interface filenames
-interfaces = Dir.glob(
-    File.join(File.dirname(__FILE__), '*.i')
-  ).map {|file| File.basename(file, '.i')}
+interfaces = %w{ freeling_ruby }
 
 # SWIG Wrapper files should exist before calling create_makefile(),
 # so write empty files and delete them so Makefile creates
