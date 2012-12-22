@@ -1,12 +1,10 @@
-require 'mkmf-rice'
+require "mkmf-rice"
 
-def error(msg)
-  message("\nError: #{msg}\n\n")
-  abort
+%w{ boost_locale freeling }.each do |lib|
+  unless have_library(lib)
+    message("\nError: You must have `#{lib}` library installed.\n\n")
+    abort
+  end
 end
 
-unless have_library('freeling')
-  error("You must have `freeling` library installed.")
-end
-
-create_makefile('freeling_ruby')
+create_makefile("freeling_ruby")
