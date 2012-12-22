@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Damián Silvani"]
   s.email       = ["munshkr@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{Ruby bindings for FreeLing, an open source NLP tool suite.}
+  s.summary     = %q{Ruby bindings for FreeLing 3.0+, an open source NLP tool suite.}
   s.description = <<-EOM
     FreeLing is an open source suite of language analyzers written in C++.
     The main services offered are: Text tokenization, sentence splitting,
@@ -31,8 +31,6 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.extensions = ["ext/freeling_ruby/extconf.rb"]
 
-  # specify any dependencies here; for example:
-  s.add_development_dependency "rake", "~> 0.9.2"
-  s.add_development_dependency "rake-compiler", "~> 0.8.1"
-  s.add_runtime_dependency "rice", "~> 1.4.3"
+  s.add_dependency "rice"
+  s.add_development_dependency "rake-compiler"
 end
